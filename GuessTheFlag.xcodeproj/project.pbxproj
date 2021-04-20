@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD0FAED1262F649B00AC97C2 /* CornerRotateModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0FAED0262F649B00AC97C2 /* CornerRotateModifier.swift */; };
 		FDA4D0C0257411D6004242F7 /* ColorTutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4D0BF257411D6004242F7 /* ColorTutorial.swift */; };
 		FDA4D0C3257413CD004242F7 /* GradientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4D0C2257413CD004242F7 /* GradientsView.swift */; };
 		FDA4D0C625741561004242F7 /* ButtonsAndImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4D0C525741561004242F7 /* ButtonsAndImages.swift */; };
 		FDA4D0C9257417BB004242F7 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4D0C8257417BB004242F7 /* Alert.swift */; };
-		FDA4D0CC257424D5004242F7 /* Day21+22.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4D0CB257424D5004242F7 /* Day21+22.swift */; };
+		FDA4D0CC257424D5004242F7 /* GuessTheFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4D0CB257424D5004242F7 /* GuessTheFlag.swift */; };
 		FDD7A84725698A6800AFFA89 /* GuessTheFlagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD7A84625698A6800AFFA89 /* GuessTheFlagApp.swift */; };
 		FDD7A84925698A6800AFFA89 /* StacksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD7A84825698A6800AFFA89 /* StacksView.swift */; };
 		FDD7A84B25698A6E00AFFA89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD7A84A25698A6E00AFFA89 /* Assets.xcassets */; };
@@ -21,11 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD0FAED0262F649B00AC97C2 /* CornerRotateModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRotateModifier.swift; sourceTree = "<group>"; };
 		FDA4D0BF257411D6004242F7 /* ColorTutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTutorial.swift; sourceTree = "<group>"; };
 		FDA4D0C2257413CD004242F7 /* GradientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientsView.swift; sourceTree = "<group>"; };
 		FDA4D0C525741561004242F7 /* ButtonsAndImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsAndImages.swift; sourceTree = "<group>"; };
 		FDA4D0C8257417BB004242F7 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		FDA4D0CB257424D5004242F7 /* Day21+22.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day21+22.swift"; sourceTree = "<group>"; };
+		FDA4D0CB257424D5004242F7 /* GuessTheFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheFlag.swift; sourceTree = "<group>"; };
 		FDD7A84325698A6800AFFA89 /* GuessTheFlag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessTheFlag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDD7A84625698A6800AFFA89 /* GuessTheFlagApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheFlagApp.swift; sourceTree = "<group>"; };
 		FDD7A84825698A6800AFFA89 /* StacksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StacksView.swift; sourceTree = "<group>"; };
@@ -74,7 +76,8 @@
 				FDA4D0C2257413CD004242F7 /* GradientsView.swift */,
 				FDA4D0C525741561004242F7 /* ButtonsAndImages.swift */,
 				FDA4D0C8257417BB004242F7 /* Alert.swift */,
-				FDA4D0CB257424D5004242F7 /* Day21+22.swift */,
+				FDA4D0CB257424D5004242F7 /* GuessTheFlag.swift */,
+				FD0FAED0262F649B00AC97C2 /* CornerRotateModifier.swift */,
 				FDD7A84A25698A6E00AFFA89 /* Assets.xcassets */,
 				FDD7A84F25698A6E00AFFA89 /* Info.plist */,
 				FDD7A84C25698A6E00AFFA89 /* Preview Content */,
@@ -163,11 +166,12 @@
 				FDD7A84925698A6800AFFA89 /* StacksView.swift in Sources */,
 				FDD7A84725698A6800AFFA89 /* GuessTheFlagApp.swift in Sources */,
 				FDA4D0C625741561004242F7 /* ButtonsAndImages.swift in Sources */,
+				FD0FAED1262F649B00AC97C2 /* CornerRotateModifier.swift in Sources */,
 				FDD7A85B2569BAD000AFFA89 /* NavBarStackView.swift in Sources */,
 				FDA4D0C3257413CD004242F7 /* GradientsView.swift in Sources */,
 				FDA4D0C9257417BB004242F7 /* Alert.swift in Sources */,
 				FDA4D0C0257411D6004242F7 /* ColorTutorial.swift in Sources */,
-				FDA4D0CC257424D5004242F7 /* Day21+22.swift in Sources */,
+				FDA4D0CC257424D5004242F7 /* GuessTheFlag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

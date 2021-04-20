@@ -19,7 +19,7 @@ struct FlagImage: View {
   }
 }
 
-struct ButtonStack: View {
+struct GuessTheFlag: View {
 
   @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
   @State private var correctAnswer = "Estonia"
@@ -27,6 +27,7 @@ struct ButtonStack: View {
   @State private var scoreTitle = ""
   @State private var scoreMessage = ""
   @State private var score = 0
+  @State private var degrees: CGFloat = 1
 
   func askQuestion() {
     countries.shuffle()
@@ -51,7 +52,9 @@ struct ButtonStack: View {
             FlagImage(country: country)
               .onTapGesture {
                 flagTapped(country)
+                degrees += 360
               }
+              
               .alert(isPresented: $showingScore, content: {
                 Alert(title: Text(scoreTitle), message: Text(scoreMessage), dismissButton: .default(Text("Continue")) {
                   self.askQuestion()
@@ -81,6 +84,6 @@ struct ButtonStack: View {
 
 struct ButtonStack_Previews: PreviewProvider {
   static var previews: some View {
-    ButtonStack()
+    GuessTheFlag()
   }
 }
