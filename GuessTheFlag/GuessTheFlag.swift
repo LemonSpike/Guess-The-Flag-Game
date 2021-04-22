@@ -27,7 +27,7 @@ struct GuessTheFlag: View {
   @State private var scoreTitle = ""
   @State private var scoreMessage = ""
   @State private var score = 0
-  @State private var degrees: CGFloat = 1
+  @State private var degrees: Double = 0
 
   func askQuestion() {
     countries.shuffle()
@@ -51,13 +51,18 @@ struct GuessTheFlag: View {
           ForEach(countries, id: \.self) { country in
             FlagImage(country: country)
               .onTapGesture {
+                degrees = isCorrectAnswer(country: country) ? 360 : 0
                 flagTapped(country)
-                degrees += 360
               }
-              
+              .rotation3DEffect(
+                .init(degrees: isCorrectAnswer(country: country) ? degrees : 0),
+                axis: (x: 0.0, y: 1.0, z: 0.0)
+              )
+              .animation(.easeInOut)
               .alert(isPresented: $showingScore, content: {
                 Alert(title: Text(scoreTitle), message: Text(scoreMessage), dismissButton: .default(Text("Continue")) {
                   self.askQuestion()
+                  degrees = 0
                 })
               })
           }
@@ -71,7 +76,7 @@ struct GuessTheFlag: View {
   }
 
   func flagTapped(_ country: String) {
-    if country == self.correctAnswer {
+    if isCorrectAnswer(country: country) {
       scoreTitle = "Right!"
       score += 1
     } else {
@@ -79,6 +84,10 @@ struct GuessTheFlag: View {
     }
     scoreMessage = scoreTitle + " Your score is \(score).\nThat's the flag of \(country)."
     showingScore = true
+  }
+
+  func isCorrectAnswer(country: String) -> Bool {
+    country == self.correctAnswer
   }
 }
 
