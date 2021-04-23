@@ -23,11 +23,13 @@ struct GuessTheFlag: View {
 
   @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
   @State private var correctAnswer = "Estonia"
+  @State private var selectedCountry = ""
   @State private var showingScore = false
   @State private var scoreTitle = ""
   @State private var scoreMessage = ""
   @State private var score = 0
   @State private var degrees: Double = 0
+  @State private var shakeAngle: Double = 0
 
   func askQuestion() {
     countries.shuffle()
@@ -52,15 +54,25 @@ struct GuessTheFlag: View {
             FlagImage(country: country)
               .onTapGesture {
                 degrees = isCorrectAnswer(country: country) ? 360 : 0
+                shakeAngle = 10
                 flagTapped(country)
               }
               .rotation3DEffect(
-                .init(degrees: isCorrectAnswer(country: country) ? degrees : 0),
+                Angle(degrees: isCorrectAnswer(country: country) ? degrees : 0),
                 axis: (x: 0.0, y: 1.0, z: 0.0)
               )
               .animation(.easeInOut)
+              .rotationEffect(Angle(degrees: shouldShake(country: country) ? shakeAngle : 0))
+              .animation(
+                Animation.easeInOut.repeatCount(3, autoreverses: true)
+              )
+              .onChange(of: showingScore, perform: { value in
+                shakeAngle = 0
+              })
               .alert(isPresented: $showingScore, content: {
-                Alert(title: Text(scoreTitle), message: Text(scoreMessage), dismissButton: .default(Text("Continue")) {
+                Alert(title: Text(scoreTitle),
+                      message: Text(scoreMessage),
+                      dismissButton: .default(Text("Continue")) {
                   self.askQuestion()
                   degrees = 0
                 })
@@ -76,6 +88,7 @@ struct GuessTheFlag: View {
   }
 
   func flagTapped(_ country: String) {
+    selectedCountry = country
     if isCorrectAnswer(country: country) {
       scoreTitle = "Right!"
       score += 1
@@ -88,6 +101,10 @@ struct GuessTheFlag: View {
 
   func isCorrectAnswer(country: String) -> Bool {
     country == self.correctAnswer
+  }
+
+  func shouldShake(country: String) -> Bool {
+    selectedCountry == country && selectedCountry != self.correctAnswer
   }
 }
 
