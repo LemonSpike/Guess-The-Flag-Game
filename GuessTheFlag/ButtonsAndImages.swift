@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct ButtonsAndImages: View {
+
+  @State var opacity: Double = 1
+
   var body: some View {
     VStack {
       Button("Tap me!") {
         print("Button was tapped")
+        opacity = 0.25
       }
+      .opacity(opacity)
       Button(action: {
         print("Button was tapped")
+        opacity = 0.25
       }) {
         VStack {
           Text("Tap me!")
@@ -25,6 +31,8 @@ struct ButtonsAndImages: View {
         }
         .accentColor(.red)
       }
+      .opacity(opacity)
+      .animation(.linear)
     }
   }
 }
